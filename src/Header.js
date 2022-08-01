@@ -1,10 +1,10 @@
 
 import "./Header.css";
-export default function Header() {
+export default function Header(props) {
   return (
     <div className="Header">
       <h1>
-        Sydney<span className="country">, AU</span>
+        {props.city}
       </h1>
       <h2>
         <small>

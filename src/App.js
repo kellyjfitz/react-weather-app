@@ -1,24 +1,19 @@
 
 
 
-import Header from "./Header";
 import Navbar from "./Navbar";
-import NowForecast from "./NowForecast";
-import WeatherConditions from "./WeatherConditions";
+import Weather from "./Weather";
+
 
 import "./styles.css";
 import "./Navbar.css";
 
-function App() {
+export default function App() {
   return (
     <div className="container">
       <Navbar />
-      <Header />
-
-      <NowForecast />
-      <WeatherConditions />
+<Weather />
+      
     </div>
   );
 }
-
-export default App;

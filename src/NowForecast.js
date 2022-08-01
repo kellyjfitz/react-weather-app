@@ -5,7 +5,7 @@ import TempConvert from "./TempConvert";
 import NowWeather from "./NowWeather";
 import "./NowForecast.css";
 
-export default function NowForecast() {
+export default function NowForecast(props) {
   return (
     <div className="NowForecast row">
       <div className="col">
@@ -16,9 +16,9 @@ export default function NowForecast() {
             <MainIcon icon="⛅" />
           </div>
           <div className="col">
-            <BigTemp temp={11} />
+            <BigTemp temp={props.data.currentTemp} />
             <TempConvert />
-            <NowWeather weather="Cloudy" />
+            <NowWeather weather={props.data.outlook} />
           </div>
         </div>
       </div>
@@ -29,9 +29,9 @@ export default function NowForecast() {
             <MainIcon icon="⛅" />
           </div>
           <div className="col">
-            <span className="min-max">Min</span> <BigTemp temp={11} />
+            <span className="min-max">Min</span> <BigTemp temp={props.data.todayMin} />
             <br />
-            <span className="min-max">Max</span> <BigTemp temp={11} />
+            <span className="min-max">Max</span> <BigTemp temp={props.data.todayMax} />
           </div>
         </div>
       </div>
