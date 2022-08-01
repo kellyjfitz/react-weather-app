@@ -1,0 +1,26 @@
+h4 {
+    font-size: 30px;
+    display: inline;
+  }
+  
+  .convert {
+    font-size: 13px;
+    position: relative;
+    top: -12px;
+  }
+  .min-max {
+    font-size: 13px;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+  .col,
+  .col-test {
+    flex: 50%;
+  }
+  .col-test {
+    justify-content: flex-end;
+  }
+  

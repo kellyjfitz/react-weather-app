@@ -1,0 +1,12 @@
+.btn-outline-secondary {
+    color: white;
+    border-color: white;
+  }
+  .btn-outline-secondary:hover {
+    background: #0b80ce;
+    border-color: #0b80ce;
+  }
+  .form-control {
+    border-color: white;
+  }
+  
