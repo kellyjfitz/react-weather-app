@@ -6,12 +6,15 @@ import NowForecast from "./NowForecast";
 import WeatherConditions from "./WeatherConditions";
 
 export default function Weather (){
-const [city, setCity] = useState ("Sydney, Australia");
+const [city, setCity] = useState ({name: "Sydney", country: "AU", lat: -33.8688, lon: 151.2093});
+const [input, setInput] = useState ("");
 const [data, setData] = useState ({ready: false});
+
 let apiKey = "455ff7a875e64ce21b9d171eb2a50c93";
   let apiUrlCoord = "https://api.openweathermap.org/geo/1.0/direct?q=";
   let apiUrlWeather = "https://api.openweathermap.org/data/2.5/onecall?";
 
+  // this takes the data from the onecall api and puts it into the data object
   function setWeather (response) {
 setData ({ready:true, 
     currentTemp: response.data.current.temp, 
@@ -28,12 +31,73 @@ timeZone: response.data.timezone,
 sunrise: response.data.daily[0].sunrise,
 sunset: response.data.daily[0].sunset,
 weather: response.data.daily  })
+
+}
+
+// this gets the form input and sets it to the input variable
+function handleInput (event) {
+  setInput(event.target.value);
+  
+}
+
+//this runs after the form input has been sent to the geolocation api and SHOULD update the lon and lat and send them to the onecall api
+function sendCityCoordinates(response) {
+  
+  setCity ({ name: response.data[0].name, 
+    country: response.data[0].country, 
+    lat: response.data[0].lat,
+  lon: response.data[0].lon })
+  console.log(city);
+  axios
+  .get(
+    `${apiUrlWeather}lat=${city.lat}&lon=${city.lon}&appid=${apiKey}&units=metric`
+  )
+  .then(setWeather);
+}
+
+
+
+//when the form is submitted, this grabs the form input and sends it to the geolocation api to get the lat and lon
+function handleSubmit(event) {
+  event.preventDefault();
+  axios
+      .get(`${apiUrlCoord}${input}&appid=${apiKey}`)
+      .then(sendCityCoordinates);
 }
 
   if ( data.ready ) 
   { return (
       <div>
-        <Header city={city}/>
+         <form className="d-flex" id="city-search" autoComplete="off" onSubmit={handleSubmit}>
+        <div className="input-group">
+          <input
+            type="search"
+            onChange={handleInput}
+            className="form-control me-2"
+            id="city-input"
+            placeholder="Change city"
+            aria-label="Search for a city to change selection"
+          />
+          <div className="input-group-append">
+            <button
+              className="btn btn-outline-secondary me-2"
+              id="city-submit"
+              type="submit"
+            >
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <button
+              className="btn btn-outline-secondary"
+              id="current-location"
+              type="button"
+            >
+              <i className="fa-solid fa-location-arrow"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+        <Header city={city.name} country={city.country} />
         <NowForecast data={data} />
         <WeatherConditions data={data} />
       </div>
@@ -41,12 +105,12 @@ weather: response.data.daily  })
   } else
   { 
     axios
-  .get(
-    `${apiUrlWeather}lat=-33.8688&lon=151.2093&appid=${apiKey}&units=metric`
-  )
-  .then(setWeather);
-    return "loading ..."
-//   The below sends coordinates for Sydney, Australia to the api
+    .get(
+      `${apiUrlWeather}lat=${city.lat}&lon=${city.lon}&appid=${apiKey}&units=metric`
+    )
+    .then(setWeather);
+    return "Weather is loading ..."
+    
   
 }
 }
