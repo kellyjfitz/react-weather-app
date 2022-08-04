@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 export default function DateInfo(props) {
+  const now = new Date();
   function getDestinationTime(timezone) {
     let destinationTime = new Intl.DateTimeFormat("en-GB", {
       timeStyle: "short",
       timeZone: timezone,
       hc: "h24",
-    }).format(props.now);
+    }).format(now);
     return destinationTime;
   }
 
@@ -16,7 +17,7 @@ export default function DateInfo(props) {
       month: "long",
       day: "numeric",
       timeZone: timezone,
-    }).format(props.now);
+    }).format(now);
     return destinationDate;
   }
 
