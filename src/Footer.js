@@ -9,8 +9,9 @@ export default function Footer() {
             href="https://github.com/kellyjfitz/portfolio"
             target="_blank"
             title="See this site on GitHub"
+            rel="noopener noreferrer"
           >
-            <i class="fa-brands fa-github-square"></i>
+            <i className="fa-brands fa-github-square"></i>
           </a>
         </li>
         <li>
@@ -18,8 +19,9 @@ export default function Footer() {
             href="https://au.linkedin.com/in/kelly-meleshko"
             target="_blank"
             title="Kelly Meleshko's LinkedIn"
+            rel="noopener noreferrer"
           >
-            <i class="fa-brands fa-linkedin"></i>
+            <i className="fa-brands fa-linkedin"></i>
           </a>
         </li>
       </ul>
