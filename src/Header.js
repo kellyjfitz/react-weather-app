@@ -7,7 +7,7 @@ export default function Header(props) {
         {props.city}
         <span className="country">, {props.country}</span>
       </h1>
-      <DateInfo timeZone={props.data.timeZone} now={props.date} />
+      <DateInfo timeZone={props.data.timeZone} />
     </div>
   );
 }

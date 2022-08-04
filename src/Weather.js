@@ -19,7 +19,6 @@ export default function Weather() {
   let apiKey = "455ff7a875e64ce21b9d171eb2a50c93";
   let apiUrlCoord = "https://api.openweathermap.org/geo/1.0/direct?q=";
   let apiUrlWeather = "https://api.openweathermap.org/data/2.5/onecall?";
-  const now = new Date();
 
   // this takes the data from the onecall api and puts it into the data object
   function setWeather(response) {
@@ -38,7 +37,21 @@ export default function Weather() {
       timeZone: response.data.timezone,
       sunrise: response.data.daily[0].sunrise,
       sunset: response.data.daily[0].sunset,
-      weather: response.data.daily,
+      dayOutlook: response.data.daily[0].weather[0].main,
+      weekForecast: response.data.daily,
+    });
+  }
+
+  // this gets the coordinates of the current location
+  function clickLocation() {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      let apiUrl3 = "https://api.openweathermap.org/geo/1.0/reverse?";
+
+      axios
+        .get(
+          `${apiUrl3}lat=${position.coords.latitude}&lon=${position.coords.longitude}&limit=5&appid=${apiKey}`
+        )
+        .then(sendCityCoordinates);
     });
   }
 
@@ -102,18 +115,14 @@ export default function Weather() {
                 className="btn btn-outline-secondary"
                 id="current-location"
                 type="button"
+                onClick={clickLocation}
               >
                 <i className="fa-solid fa-location-arrow"></i>
               </button>
             </div>
           </div>
         </form>
-        <Header
-          city={city.name}
-          country={city.country}
-          data={data}
-          date={now}
-        />
+        <Header city={city.name} country={city.country} data={data} />
         <NowForecast data={data} />
         <WeatherConditions data={data} />
       </div>
