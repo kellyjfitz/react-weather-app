@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import MainIcon from "./MainIcon";
 import BigTemp from "./BigTemp";
-import TempConvert from "./TempConvert";
 
 import "./NowForecast.css";
 
