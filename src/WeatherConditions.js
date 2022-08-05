@@ -13,7 +13,7 @@ export default function WeatherConditions(props) {
   }
 
   return (
-    <div className="WeatherConditions forecast">
+    <div className="WeatherConditions">
       <p>
         <span role="img" aria-label="happy sun">
           🌞

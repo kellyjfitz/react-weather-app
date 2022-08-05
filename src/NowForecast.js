@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import MainIcon from "./MainIcon";
+import Icon from "./Icon";
 import BigTemp from "./BigTemp";
+import WeatherConditions from "./WeatherConditions";
+import NextWeek from "./NextWeek";
 
 import "./NowForecast.css";
 
@@ -19,65 +21,74 @@ export default function NowForecast(props) {
     setUnit("celsius");
   }
   return (
-    <div className="NowForecast row">
-      <div className="col">
-        <div className="row">
-          <div className="col-test">
-            <p>Now</p>
+    <div className="NowForecast">
+      <div className="row">
+        <div className="col">
+          <div className="row">
+            <div className="col-test">
+              <p>Now</p>
 
-            <MainIcon icon={props.data.outlook} />
+              <Icon icon={props.data.outlook} />
+            </div>
+            <div className="col">
+              <BigTemp
+                temp={props.data.currentTemp}
+                convert={showFahrenheit}
+                unit={unit}
+              />
+              {unit === "celsius" ? (
+                <span className="convert">
+                  {" "}
+                  C |{" "}
+                  <a href="./" onClick={showF}>
+                    F
+                  </a>
+                </span>
+              ) : (
+                <span className="convert">
+                  {" "}
+                  <a href="./" onClick={showC}>
+                    C
+                  </a>{" "}
+                  | F
+                </span>
+              )}
+
+              <p>{props.data.outlook}</p>
+            </div>
           </div>
-          <div className="col">
-            <BigTemp
-              temp={props.data.currentTemp}
-              convert={showFahrenheit}
-              unit={unit}
-            />
-            {unit === "celsius" ? (
-              <span className="convert">
-                {" "}
-                <a href="./" onClick={showF}>
-                  C
-                </a>{" "}
-                | F
-              </span>
-            ) : (
-              <span className="convert">
-                {" "}
-                C |{" "}
-                <a href="./" onClick={showC}>
-                  F
-                </a>
-              </span>
-            )}
-
-            <p>{props.data.outlook}</p>
+        </div>
+        <div className="col">
+          <div className="row">
+            <div className="col">
+              <p>Today</p>
+              <Icon icon={props.data.dayOutlook} />
+            </div>
+            <div className="col">
+              <span className="min-max">Min</span>{" "}
+              <BigTemp
+                temp={props.data.todayMin}
+                convert={showFahrenheit}
+                unit={unit}
+              />
+              <br />
+              <span className="min-max">Max</span>{" "}
+              <BigTemp
+                temp={props.data.todayMax}
+                convert={showFahrenheit}
+                unit={unit}
+              />
+            </div>
           </div>
         </div>
       </div>
-      <div className="col">
-        <div className="row">
-          <div className="col">
-            <p>Today</p>
-            <MainIcon icon={props.data.dayOutlook} />
-          </div>
-          <div className="col">
-            <span className="min-max">Min</span>{" "}
-            <BigTemp
-              temp={props.data.todayMin}
-              convert={showFahrenheit}
-              unit={unit}
-            />
-            <br />
-            <span className="min-max">Max</span>{" "}
-            <BigTemp
-              temp={props.data.todayMax}
-              convert={showFahrenheit}
-              unit={unit}
-            />
-          </div>
-        </div>
-      </div>
+      <WeatherConditions data={props.data} />
+      <NextWeek
+        data={props.data.weekForecast}
+        timeZone={props.data.timeZone}
+        convert={showFahrenheit}
+        unit={unit}
+      />
     </div>
   );
 }

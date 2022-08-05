@@ -3,7 +3,7 @@ import axios from "axios";
 import Header from "./Header";
 
 import NowForecast from "./NowForecast";
-import WeatherConditions from "./WeatherConditions";
+
 import "./Weather.css";
 
 export default function Weather() {
@@ -124,7 +124,6 @@ export default function Weather() {
         </form>
         <Header city={city.name} country={city.country} data={data} />
         <NowForecast data={data} />
-        <WeatherConditions data={data} />
       </div>
     );
   } else {

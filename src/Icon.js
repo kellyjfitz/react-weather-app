@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function MainIcon(props) {
+export default function Icon(props) {
   return (
     <h3>
       {props.icon === "Clouds"
