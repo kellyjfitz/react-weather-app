@@ -3,7 +3,8 @@ import axios from "axios";
 import Header from "./Header";
 
 import NowForecast from "./NowForecast";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import "./Weather.css";
 
 export default function Weather() {
@@ -22,7 +23,6 @@ export default function Weather() {
 
   // this takes the data from the onecall api and puts it into the data object
   function setWeather(response) {
-   
     setData({
       ready: true,
       currentTemp: response.data.current.temp,
@@ -92,7 +92,6 @@ export default function Weather() {
           className="d-flex"
           id="city-search"
           autoComplete="off"
-          
           onSubmit={handleSubmit}
         >
           <div className="input-group">
@@ -135,6 +134,8 @@ export default function Weather() {
         `${apiUrlWeather}lat=${city.lat}&lon=${city.lon}&appid=${apiKey}&units=metric`
       )
       .then(setWeather);
-    return "Weather is loading ...";
+    return (
+      <FontAwesomeIcon icon={faSpinner} spin size="8x" className="spinner" />
+    );
   }
 }

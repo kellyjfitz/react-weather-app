@@ -18,7 +18,7 @@ h3 {
 
 p {
   font-size: 14px;
-  /* padding-top: 17px; */
+
   margin: 0;
 }
 
@@ -46,33 +46,9 @@ footer {
   padding: 5px 0;
 }
 
-.separator {
-  font-weight: 100;
-}
-
-.convert .display {
-  text-decoration: none;
-  color: inherit;
-}
-.convert .display:hover {
-  cursor: default;
-  color: inherit;
-}
-
-.night-theme-body {
-  background: linear-gradient(
-    114.9deg,
-    rgb(34, 34, 34) 8.3%,
-    rgb(0, 40, 60) 41.6%,
-    rgb(0, 143, 213) 93.4%
-  );
-  background-size: cover;
-  background-attachment: fixed;
-
-  color: white;
-}
-.night-theme-text {
-  color: white;
+.spinner {
+  margin: 0 auto;
+  display: block;
 }
 
 .WeatherConditions {
@@ -80,8 +56,8 @@ footer {
 }
 
 @media (max-width: 560px) {
-.container {
-  text-align: center;
-  max-width: 450px;
-}
+  .container {
+    text-align: center;
+    max-width: 450px;
+  }
 }
