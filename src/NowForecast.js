@@ -64,7 +64,7 @@ export default function NowForecast(props) {
               <p>Today</p>
               <Icon icon={props.data.dayOutlook} />
             </div>
-            <div className="col">
+            <div className="col col-temp">
               <span className="min-max">Min</span>{" "}
               <BigTemp
                 temp={props.data.todayMin}

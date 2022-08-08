@@ -1,32 +1,31 @@
 h4 {
-    font-size: 30px;
-    display: inline;
-  }
-  
-  .convert {
-    font-size: 13px;
-    position: relative;
-    top: -12px;
-  }
-  .min-max {
-    font-size: 13px;
-  }
+  font-size: 30px;
+  display: inline;
+}
+
+.convert {
+  font-size: 13px;
+  position: relative;
+  top: -12px;
+}
+.min-max {
+  font-size: 13px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+.col,
+.col-outer {
+  flex: 50%;
+}
+
+@media (max-width: 560px) {
   .row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: flex-start;
   }
-  .col, .col-outer
-  {
-    flex: 50%;
+  .col-outer {
+    flex: 100%;
   }
-  
-  
-  @media (max-width: 560px) {
-    .row {
-      align-items: flex-start;
-    }
-    .col-outer {
-      flex: 100%
-    }
-  }
+}
