@@ -25,7 +25,7 @@ export default function NowForecast(props) {
       <div className="row">
         <div className="col">
           <div className="row">
-            <div className="col-test">
+            <div className="col">
               <p>Now</p>
 
               <Icon icon={props.data.outlook} />

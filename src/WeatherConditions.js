@@ -28,7 +28,7 @@ export default function WeatherConditions(props) {
         <span role="img" aria-label="umbrella">
           ☔
         </span>{" "}
-        Chance of rain: {props.data.chanceRain}% 🌧️ Rain:{" "}
+        Chance of rain: {Math.round(props.data.chanceRain)}% 🌧️ Rain:{" "}
         {props.data.rain === undefined ? 0 : props.data.rain}mm
         <br />
         <span role="img" aria-label="wind">

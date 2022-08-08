@@ -5,7 +5,7 @@ export default function SmallWeather(props) {
   //this is getting the day names for the sevenday forecast
   function getDayNames(timezone, date) {
     let day = new Intl.DateTimeFormat("en-GB", {
-      weekday: "long",
+      weekday: "short",
       timeZone: timezone,
       hc: "h24",
     }).format(date * 1000);

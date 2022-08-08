@@ -22,6 +22,7 @@ export default function Weather() {
 
   // this takes the data from the onecall api and puts it into the data object
   function setWeather(response) {
+   
     setData({
       ready: true,
       currentTemp: response.data.current.temp,
@@ -91,6 +92,7 @@ export default function Weather() {
           className="d-flex"
           id="city-search"
           autoComplete="off"
+          
           onSubmit={handleSubmit}
         >
           <div className="input-group">
@@ -100,6 +102,7 @@ export default function Weather() {
               className="form-control me-2"
               id="city-input"
               placeholder="Change city"
+              autoFocus="on"
               aria-label="Search for a city to change selection"
             />
             <div className="input-group-append">

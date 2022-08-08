@@ -16,11 +16,17 @@ h4 {
     flex-wrap: wrap;
     align-items: flex-end;
   }
-  .col,
-  .col-test {
+  .col, .col-outer
+  {
     flex: 50%;
   }
-  .col-test {
-    justify-content: flex-end;
-  }
   
+  
+  @media (max-width: 560px) {
+    .row {
+      align-items: flex-start;
+    }
+    .col-outer {
+      flex: 100%
+    }
+  }
