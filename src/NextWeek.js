@@ -17,6 +17,7 @@ export default function NextWeek(props) {
                 timeZone={props.timeZone}
                 convert={props.convert}
                 unit={props.unit}
+                key={index}
               />
             );
           } else {

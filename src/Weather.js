@@ -5,6 +5,8 @@ import Header from "./Header";
 import NowForecast from "./NowForecast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import "./Weather.css";
 
 export default function Weather() {
@@ -110,7 +112,8 @@ export default function Weather() {
                 id="city-submit"
                 type="submit"
               >
-                <i className="fa-solid fa-magnifying-glass"></i>
+                {" "}
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
               </button>
 
               <button
@@ -119,7 +122,7 @@ export default function Weather() {
                 type="button"
                 onClick={clickLocation}
               >
-                <i className="fa-solid fa-location-arrow"></i>
+                <FontAwesomeIcon icon={faLocationArrow} />
               </button>
             </div>
           </div>

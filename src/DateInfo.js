@@ -1,7 +1,9 @@
 import React from "react";
 export default function DateInfo(props) {
   const now = new Date();
+
   function getDestinationTime(timezone) {
+    //this one gets the time at destination - the same place as the weather
     let destinationTime = new Intl.DateTimeFormat("en-GB", {
       timeStyle: "short",
       timeZone: timezone,
