@@ -90,35 +90,24 @@ export default function Weather() {
   if (data.ready) {
     return (
       <div>
-        <form
-          className="d-flex"
-          id="city-search"
-          autoComplete="off"
-          onSubmit={handleSubmit}
-        >
+        <form className="d-flex" autoComplete="off" onSubmit={handleSubmit}>
           <div className="input-group">
             <input
               type="search"
               onChange={handleInput}
               className="form-control me-2"
-              id="city-input"
               placeholder="Change city"
               autoFocus="on"
               aria-label="Search for a city to change selection"
             />
             <div className="input-group-append">
-              <button
-                className="btn btn-outline-secondary me-2"
-                id="city-submit"
-                type="submit"
-              >
+              <button className="btn btn-outline-secondary me-2" type="submit">
                 {" "}
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
               </button>
 
               <button
                 className="btn btn-outline-secondary"
-                id="current-location"
                 type="button"
                 onClick={clickLocation}
               >
