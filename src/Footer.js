@@ -1,5 +1,10 @@
 import React from "react";
 import "./Footer.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faGithubSquare } from "@fortawesome/free-brands-svg-icons";
+
 export default function Footer() {
   return (
     <footer>
@@ -11,7 +16,7 @@ export default function Footer() {
             title="See this site on GitHub"
             rel="noopener noreferrer"
           >
-            <i className="fa-brands fa-github-square"></i>
+            <FontAwesomeIcon icon={faGithubSquare} />
           </a>
         </li>
         <li>
@@ -21,7 +26,7 @@ export default function Footer() {
             title="Kelly Meleshko's LinkedIn"
             rel="noopener noreferrer"
           >
-            <i className="fa-brands fa-linkedin"></i>
+            <FontAwesomeIcon icon={faLinkedin} />
           </a>
         </li>
       </ul>
