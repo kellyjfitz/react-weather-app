@@ -1,8 +1,8 @@
-import "./Header.css";
+import "./Head.css";
 import DateInfo from "./DateInfo";
-export default function Header(props) {
+export default function Head(props) {
   return (
-    <div className="Header">
+    <div className="Head">
       <h1>
         {props.city}
         <span className="country">, {props.country}</span>

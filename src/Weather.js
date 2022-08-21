@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Header from "./Header";
+import Head from "./Head";
 
 import NowForecast from "./NowForecast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -63,7 +63,7 @@ export default function Weather() {
     setInput(event.target.value);
   }
 
-  //this runs after the form input has been sent to the geolocation api and SHOULD update the lon and lat and send them to the onecall api
+  //this runs after the form input has been sent to the geolocation api and  updates the lon and lat and send them to the onecall api
   function sendCityCoordinates(response) {
     setCity({
       name: response.data[0].name,
@@ -116,7 +116,7 @@ export default function Weather() {
             </div>
           </div>
         </form>
-        <Header city={city.name} country={city.country} data={data} />
+        <Head city={city.name} country={city.country} data={data} />
         <NowForecast data={data} />
       </div>
     );
